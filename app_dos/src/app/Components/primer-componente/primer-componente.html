@@ -2,16 +2,47 @@
 <form class="row mx-2" (submit)="guardar($event)">
     <div class="col-md-10">
         <label for="nombre" class="form-label">Nombre</label>
-        <input type="text" id="nombre" class="form-control" [formField]="personaFormulario.nombre">
+        <input type="text" id="nombre" class=
+        "form-control" [formField]="personaFormulario.nombre">
+        @if (personaFormulario.nombre().touched() && personaFormulario.nombre().invalid())
+        {
+            @for(e of personaFormulario.nombre().errors(); track $index) {
+                    <span class="text-danger">{{ e.message }}</span>
+            }
+        }
     </div>
 
     <div class="col-md-4">
         <label for="edad" class="form-label">Edad</label>
         <input type="number" id="edad" class="form-control" [formField]="personaFormulario.edad">
+        @if (personaFormulario.edad().touched() && personaFormulario.edad().invalid())
+        {
+            @for(e of personaFormulario.edad().errors(); track $index) {
+                    <span class="text-danger">{{ e.message }}</span>
+            }
+        }
     </div>
 
     <div class="col-md-10 mt-3 mx-5" >
-        <button class="btn btn-primary" type="submit">Guardar</button>
+        <button class="btn btn-primary" type="submit" [disabled]="personaFormulario.nombre().invalid()|| personaFormulario.edad().invalid()">Guardar</button>
+
     </div>
     
 </form>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Edad</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (persona of listaPersonas; track $index) {
+            <tr>
+                <td>{{ persona.nombre }}</td>
+                <td>{{ persona.edad }}</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
