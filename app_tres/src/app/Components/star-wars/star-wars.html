@@ -1,0 +1,66 @@
+<section class="starwars" [class.tema-oscuro]="oscuro()">
+  <a class="back-link" routerLink="/">
+    <svg class="back-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    <span>Volver al inicio</span>
+  </a>
+  <button type="button" class="theme-toggle" (click)="alternarTema()">Modo {{ oscuro() ? 'claro' : 'oscuro' }}</button>
+
+  <header>
+    <h1>Star Wars API</h1>
+    <p>Personajes del universo Star Wars consumidos desde SWAPI.</p>
+  </header>
+
+  <div class="controles">
+    <input
+      type="search"
+      placeholder="Filtrar personajes de esta pagina"
+      [value]="busqueda()"
+      (input)="busqueda.set($any($event.target).value)"
+    />
+
+    <div class="paginacion">
+      <button type="button" (click)="anterior()" [disabled]="pagina() <= 1">Anterior</button>
+      <span>Pagina {{ pagina() }} de {{ totalPaginas() }}</span>
+      <button type="button" (click)="siguiente()" [disabled]="pagina() >= totalPaginas()">Siguiente</button>
+    </div>
+  </div>
+
+  @if (cargando()) {
+    <p class="estado">Cargando personajes...</p>
+  }
+
+  @if (error()) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  <ul class="grid">
+    @for (personaje of personajesFiltrados(); track personaje.url) {
+      <li class="card" tabindex="0" (click)="verDetalle(personaje)" (keydown.enter)="verDetalle(personaje)">
+        <img [src]="imagen(personaje)" [alt]="personaje.name" />
+        <h2>{{ personaje.name }}</h2>
+        <p>{{ personaje.gender }} | {{ personaje.birth_year }}</p>
+        <p class="detalle">{{ personaje.height }} cm | {{ personaje.mass }} kg</p>
+      </li>
+    } @empty {
+      <li class="vacio">No se encontraron personajes.</li>
+    }
+  </ul>
+
+  @if (detalle(); as personaje) {
+    <div class="modal" role="dialog" aria-modal="true" (click)="cerrarDetalle()">
+      <article class="modal__contenido" (click)="$event.stopPropagation()">
+        <button type="button" class="modal__cerrar" (click)="cerrarDetalle()">Cerrar</button>
+        <img [src]="imagen(personaje)" [alt]="personaje.name" />
+        <h2>{{ personaje.name }}</h2>
+        <p><strong>Genero:</strong> {{ personaje.gender }}</p>
+        <p><strong>Nacimiento:</strong> {{ personaje.birth_year }}</p>
+        <p><strong>Altura:</strong> {{ personaje.height }} cm</p>
+        <p><strong>Peso:</strong> {{ personaje.mass }} kg</p>
+        <p><strong>Color de cabello:</strong> {{ personaje.hair_color }}</p>
+        <p><strong>Color de ojos:</strong> {{ personaje.eye_color }}</p>
+      </article>
+    </div>
+  }
+</section>

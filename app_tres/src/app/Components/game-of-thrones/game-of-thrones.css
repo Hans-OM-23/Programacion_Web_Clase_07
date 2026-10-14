@@ -1,0 +1,212 @@
+:host {
+  display: block;
+  min-height: 100dvh;
+  font-family: system-ui, sans-serif;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(168, 85, 247, 0.12), transparent 35%),
+    radial-gradient(circle at 85% 25%, rgba(248, 113, 113, 0.12), transparent 35%),
+    linear-gradient(180deg, #faf5ff 0%, #f8fafc 100%);
+}
+
+.got {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.75);
+  color: #0f172a;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.back-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+}
+
+.got header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: #0f172a;
+}
+
+.got header p {
+  margin: 0.5rem 0 0;
+  color: #475467;
+}
+
+.controles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.controles input {
+  flex: 1 1 260px;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 0.85rem;
+  font-size: 1rem;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.controles input:focus {
+  border-color: #9333ea;
+  box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.15);
+}
+
+.controles button {
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 0.85rem;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 1.25rem;
+  padding: 1.1rem;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  display: grid;
+  gap: 0.6rem;
+  justify-items: center;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover,
+.card:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.14);
+  outline: none;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: linear-gradient(135deg, #6b21a8, #111827);
+  box-shadow: 0 10px 20px rgba(107, 33, 168, 0.25);
+}
+
+.avatar--grande {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 0.75rem;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+.house {
+  color: #7c3aed;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.quote {
+  margin: 0;
+  color: #475467;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.count {
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.vacio,
+.estado,
+.error {
+  grid-column: 1 / -1;
+  padding: 1rem;
+  border-radius: 0.75rem;
+}
+
+.error {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.quotes {
+  text-align: left;
+  padding-left: 1.25rem;
+  color: #334155;
+}
+
+.quotes li {
+  margin-bottom: 0.75rem;
+  font-style: italic;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(6px);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  z-index: 20;
+}
+
+.modal__contenido {
+  background: #fff;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  width: min(540px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  text-align: center;
+  box-shadow: 0 28px 60px rgba(15, 23, 42, 0.2);
+}
+
+.modal__cerrar {
+  float: right;
+  border: none;
+  background: #e2e8f0;
+  border-radius: 0.65rem;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-weight: 600;
+}

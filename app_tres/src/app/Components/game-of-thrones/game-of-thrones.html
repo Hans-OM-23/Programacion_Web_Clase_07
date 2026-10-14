@@ -1,0 +1,61 @@
+<section class="got">
+  <a class="back-link" routerLink="/">
+    <svg class="back-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    <span>Volver al inicio</span>
+  </a>
+  <button type="button" class="theme-toggle" (click)="alternarTema()">Modo {{ oscuro() ? 'claro' : 'oscuro' }}</button>
+  <header>
+    <h1>Game of Thrones Quotes API</h1>
+    <p>Personajes y frases obtenidos desde la API oficial de Game of Thrones.</p>
+  </header>
+
+  <div class="controles">
+    <input
+      type="search"
+      placeholder="Buscar por personaje, casa o frase"
+      [value]="busqueda()"
+      (input)="busqueda.set($any($event.target).value)"
+    />
+    <button type="button" (click)="cargar()">Recargar</button>
+  </div>
+
+  @if (cargando()) {
+    <p class="estado">Cargando personajes...</p>
+  }
+
+  @if (error()) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  <ul class="grid">
+    @for (personaje of personajesFiltrados(); track personaje.slug) {
+      <li class="card" tabindex="0" (click)="verDetalle(personaje)" (keydown.enter)="verDetalle(personaje)">
+        <img class="avatar" [src]="imagen(personaje)" [alt]="personaje.name" />
+        <h2>{{ personaje.name }}</h2>
+        <span class="house">{{ personaje.house.name }}</span>
+        <p class="quote">{{ personaje.quotes[0] }}</p>
+        <span class="count">{{ personaje.quotes.length }} frases</span>
+      </li>
+    } @empty {
+      <li class="vacio">No se encontraron personajes.</li>
+    }
+  </ul>
+
+  @if (detalle(); as personaje) {
+    <div class="modal" role="dialog" aria-modal="true" (click)="cerrarDetalle()">
+      <article class="modal__contenido" (click)="$event.stopPropagation()">
+        <button type="button" class="modal__cerrar" (click)="cerrarDetalle()">Cerrar</button>
+        <img class="avatar avatar--grande" [src]="imagen(personaje)" [alt]="personaje.name" />
+        <h2>{{ personaje.name }}</h2>
+        <p class="house">{{ personaje.house.name }}</p>
+        <ul class="quotes">
+          @for (quote of personaje.quotes; track quote) {
+            <li>{{ quote }}</li>
+          }
+        </ul>
+      </article>
+    </div>
+  }
+</section>

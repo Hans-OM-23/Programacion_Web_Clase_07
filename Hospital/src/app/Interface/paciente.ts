@@ -1,1 +1,5 @@
-export interface Paciente {}
+export interface Paciente {
+  nombre: string;
+  edad: number;
+  telefono: string;
+}

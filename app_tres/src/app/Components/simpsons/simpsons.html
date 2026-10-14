@@ -1,0 +1,65 @@
+<section class="simpsons">
+  <a class="back-link" routerLink="/">
+    <svg class="back-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    <span>Volver al inicio</span>
+  </a>
+  <button type="button" class="theme-toggle" (click)="alternarTema()">Modo {{ oscuro() ? 'claro' : 'oscuro' }}</button>
+  <header>
+    <h1>Los Simpsons API</h1>
+    <p>Personajes de Springfield consumidos desde The Simpsons API.</p>
+  </header>
+
+  <div class="controles">
+    <input
+      type="search"
+      placeholder="Filtrar personajes de esta pagina"
+      [value]="busqueda()"
+      (input)="busqueda.set($any($event.target).value)"
+    />
+
+    <div class="paginacion">
+      <button type="button" (click)="anterior()" [disabled]="pagina() <= 1">Anterior</button>
+      <span>Pagina {{ pagina() }} de {{ info()?.pages ?? 1 }}</span>
+      <button type="button" (click)="siguiente()" [disabled]="!info()?.next">Siguiente</button>
+    </div>
+  </div>
+
+  @if (cargando()) {
+    <p class="estado">Cargando personajes...</p>
+  }
+
+  @if (error()) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  <ul class="grid">
+    @for (personaje of personajesFiltrados(); track personaje.id) {
+      <li class="card" tabindex="0" (click)="verDetalle(personaje)" (keydown.enter)="verDetalle(personaje)">
+        <img [src]="imagen(personaje)" [alt]="personaje.name" (error)="$event.target.src = 'https://placehold.co/200x200?text=Simpsons'" />
+        <h2>{{ personaje.name }}</h2>
+        <p>{{ personaje.gender }} | {{ personaje.status }}</p>
+        <p class="detalle">{{ personaje.occupation }}</p>
+      </li>
+    } @empty {
+      <li class="vacio">No se encontraron personajes.</li>
+    }
+  </ul>
+
+  @if (detalle(); as personaje) {
+    <div class="modal" role="dialog" aria-modal="true" (click)="cerrarDetalle()">
+      <article class="modal__contenido" (click)="$event.stopPropagation()">
+        <button type="button" class="modal__cerrar" (click)="cerrarDetalle()">Cerrar</button>
+        <img [src]="imagen(personaje)" [alt]="personaje.name" (error)="$event.target.src = 'https://placehold.co/200x200?text=Simpsons'" />
+        <h2>{{ personaje.name }}</h2>
+        <p><strong>Genero:</strong> {{ personaje.gender }}</p>
+        <p><strong>Estado:</strong> {{ personaje.status }}</p>
+        <p><strong>Ocupacion:</strong> {{ personaje.occupation }}</p>
+        <p><strong>Edad:</strong> {{ personaje.age ?? 'Desconocida' }}</p>
+        <p><strong>Nacimiento:</strong> {{ personaje.birthdate ?? 'Desconocido' }}</p>
+        <blockquote>{{ personaje.phrases }}</blockquote>
+      </article>
+    </div>
+  }
+</section>

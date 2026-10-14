@@ -1,0 +1,225 @@
+:host {
+  display: block;
+  min-height: 100dvh;
+  font-family: system-ui, sans-serif;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(250, 204, 21, 0.14), transparent 35%),
+    radial-gradient(circle at 85% 25%, rgba(37, 99, 235, 0.12), transparent 35%),
+    linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+  color: #f8fafc;
+}
+
+.starwars {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.back-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+
+.theme-toggle {
+  margin-bottom: 1rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.starwars header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: #facc15;
+}
+
+.starwars header p {
+  margin: 0.5rem 0 0;
+  color: #cbd5e1;
+}
+
+.controles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+.controles input {
+  flex: 1 1 260px;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0.85rem;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f8fafc;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.controles input:focus {
+  border-color: #facc15;
+  box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.15);
+}
+
+.paginacion {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.paginacion button {
+  padding: 0.6rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f8fafc;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.paginacion button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.25rem;
+  padding: 0.9rem;
+  cursor: pointer;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover,
+.card:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.24);
+  outline: none;
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 0.85rem;
+}
+
+.card h2 {
+  font-size: 1rem;
+  margin: 0.7rem 0 0.3rem;
+  color: #f8fafc;
+}
+
+.card p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+.card .detalle {
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+.vacio,
+.estado,
+.error {
+  grid-column: 1 / -1;
+  padding: 1rem;
+  border-radius: 0.75rem;
+}
+
+.error {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fecaca;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.7);
+  backdrop-filter: blur(6px);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  z-index: 20;
+}
+
+.modal__contenido {
+  background: #111827;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  width: min(480px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  text-align: center;
+  color: #e2e8f0;
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal__contenido img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.modal__cerrar {
+  float: right;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-radius: 0.65rem;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-weight: 600;
+}

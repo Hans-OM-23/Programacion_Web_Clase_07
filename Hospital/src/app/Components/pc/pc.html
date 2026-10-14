@@ -1,16 +1,495 @@
 
-<form class="max-w-sm mx-auto">
-  <div class="mb-5">
-    <label for="email" class="block mb-2.5 text-sm font-medium text-heading">Your email</label>
-    <input type="email" id="email" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="name@flowbite.com" required />
+<!-- Barra de Navegación -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#">
+      <i class="bi bi-hospital fs-3 text-light"></i>
+      <span>Hospital <span class="text-warning">Dr. Sano</span></span>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarHospital"
+      aria-controls="navbarHospital"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarHospital">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3">
+        <li class="nav-item">
+          <a class="nav-link active" href="#"><i class="bi bi-house-door-fill me-1"></i>Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#servicios"><i class="bi bi-heart-pulse-fill me-1"></i>Servicios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#medicos"><i class="bi bi-person-badge-fill me-1"></i>Médicos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#promociones"><i class="bi bi-tags-fill me-1"></i>Promociones</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#resenas"><i class="bi bi-chat-heart-fill me-1"></i>Reseñas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#registro"><i class="bi bi-clipboard-plus-fill me-1"></i>Registro</a>
+        </li>
+      </ul>
+      <div class="d-flex align-items-center text-light">
+        <div class="bg-white text-primary rounded-pill px-3 py-1 fw-bold small shadow-sm d-flex align-items-center gap-2">
+          <i class="bi bi-telephone-inbound-fill text-danger"></i>
+          <span>Emergencias: (01) 800-SANO</span>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="mb-5">
-    <label for="password" class="block mb-2.5 text-sm font-medium text-heading">Your password</label>
-    <input type="password" id="password" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="••••••••" required />
+</nav>
+
+<!-- Hero Section -->
+<header class="bg-light py-5 border-bottom">
+  <div class="container py-4">
+    <div class="row align-items-center gy-4">
+      <div class="col-lg-7">
+        <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill mb-3">
+          <i class="bi bi-award-fill me-1"></i> Compromiso y Excelencia Médica
+        </span>
+        <h1 class="display-5 fw-bold text-dark mb-3">
+          Cuidamos de tu bienestar con vocación y tecnología de punta
+        </h1>
+        <p class="lead text-secondary mb-4">
+          En el <strong>Hospital Dr. Sano</strong> ponemos a tu disposición a los mejores profesionales de la salud, equipamiento de última generación y atención cálida las 24 horas del día.
+        </p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#registro" class="btn btn-primary btn-lg shadow-sm px-4">
+            <i class="bi bi-person-plus-fill me-2"></i>Registrar Paciente
+          </a>
+          <a href="#servicios" class="btn btn-outline-primary btn-lg px-4">
+            <i class="bi bi-grid-fill me-2"></i>Ver Servicios
+          </a>
+        </div>
+        <div class="row mt-4 pt-3 border-top g-3">
+          <div class="col-sm-4">
+            <h4 class="fw-bold text-primary mb-0">+15 Años</h4>
+            <small class="text-muted">De experiencia clínica</small>
+          </div>
+          <div class="col-sm-4">
+            <h4 class="fw-bold text-primary mb-0">24 / 7</h4>
+            <small class="text-muted">Atención ininterrumpida</small>
+          </div>
+          <div class="col-sm-4">
+            <h4 class="fw-bold text-primary mb-0">+40 Especialistas</h4>
+            <small class="text-muted">Médicos colegiados</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 text-center">
+        <div class="card border-0 shadow-lg bg-primary text-white p-4 rounded-4">
+          <div class="card-body py-4">
+            <div class="display-3 mb-3">
+              <i class="bi bi-shield-shaded"></i>
+            </div>
+            <h3 class="fw-bold">Hospital Dr. Sano</h3>
+            <p class="text-light opacity-75">
+              Infraestructura moderna, quirófanos de alta complejidad y laboratorio automatizado al servicio de tu familia.
+            </p>
+            <div class="d-flex justify-content-center gap-2 mt-3">
+              <span class="badge bg-warning text-dark"><i class="bi bi-check-circle-fill me-1"></i>Acreditados</span>
+              <span class="badge bg-info text-dark"><i class="bi bi-star-fill me-1"></i>Calidad Top</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <label for="remember" class="flex items-center mb-5">
-    <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-default-medium rounded-xs bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft" required />
-    <p class="ms-2 text-sm font-medium text-heading select-none">I agree with the <a href="#" class="text-fg-brand hover:underline">terms and conditions</a>.</p>
-  </label>
-  <button type="submit" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Submit</button>
-</form>
+</header>
+
+<!-- Sección 1: Servicios Médicos -->
+<section id="servicios" class="py-5 bg-white">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="badge bg-primary px-3 py-2 rounded-pill text-uppercase">Nuestra Cobertura</span>
+      <h2 class="fw-bold mt-2">Servicios Médicos Hospitalarios</h2>
+      <p class="text-muted mx-auto" style="max-width: 650px;">
+        Contamos con una amplia gama de especialidades y departamentos equipados para atender cualquier necesidad de salud.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      @for (servicio of servicios; track servicio.id) {
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm border-0 border-top border-4 border-primary hover-card">
+            <div class="card-body p-4">
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <div class="bg-primary-subtle text-primary p-3 rounded-3 fs-3">
+                  <i class="bi" [class]="servicio.icono"></i>
+                </div>
+                <span class="badge bg-light text-primary border">{{ servicio.badge }}</span>
+              </div>
+              <h5 class="card-title fw-bold text-dark">{{ servicio.nombre }}</h5>
+              <p class="card-text text-secondary">{{ servicio.descripcion }}</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Sección 2: Médicos y Especialidades -->
+<section id="medicos" class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="badge bg-success px-3 py-2 rounded-pill text-uppercase">Nuestros Profesionales</span>
+      <h2 class="fw-bold mt-2">Plana Médica y Especialistas</h2>
+      <p class="text-muted mx-auto" style="max-width: 650px;">
+        Médicos con sólida trayectoria, constante actualización científica y vocación humanitaria.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      @for (medico of medicos; track medico.id) {
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm text-center p-3">
+            <div class="card-body">
+              <div class="mb-3 d-inline-flex align-items-center justify-content-center bg-primary text-white rounded-circle shadow-sm" style="width: 75px; height: 75px;">
+                <i class="bi" [class]="medico.icono" style="font-size: 2.2rem;"></i>
+              </div>
+              <h5 class="fw-bold mb-1 text-dark">{{ medico.nombre }}</h5>
+              <span class="badge bg-primary-subtle text-primary mb-2">{{ medico.especialidad }}</span>
+              <p class="small text-muted mb-2">
+                <i class="bi bi-clock-history me-1"></i>{{ medico.experiencia }}
+              </p>
+              <div class="border-top pt-2">
+                <span class="badge bg-secondary-subtle text-secondary small">{{ medico.colegiatura }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Sección 3: Promociones Vigentes -->
+<section id="promociones" class="py-5 bg-white">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="badge bg-danger px-3 py-2 rounded-pill text-uppercase">Oportunidades de Salud</span>
+      <h2 class="fw-bold mt-2">Promociones y Campañas Vigentes</h2>
+      <p class="text-muted mx-auto" style="max-width: 650px;">
+        Accede a chequeos preventivos integrales con tarifas especiales pensadas en la economía de tu hogar.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      @for (promo of promociones; track promo.id) {
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0 border-top border-4 border-danger">
+            <div class="card-body p-4 d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="badge bg-danger text-white fs-6 px-3 py-2 rounded-pill shadow-xs">
+                  <i class="bi bi-tag-fill me-1"></i>{{ promo.descuento }}
+                </span>
+                <span class="badge bg-light text-muted border">{{ promo.vigencia }}</span>
+              </div>
+              <h5 class="fw-bold text-dark">{{ promo.titulo }}</h5>
+              <p class="text-muted small mb-3">{{ promo.subtitulo }}</p>
+              
+              <ul class="list-unstyled mb-4 flex-grow-1">
+                @for (beneficio of promo.beneficios; track $index) {
+                  <li class="mb-2 small d-flex align-items-center text-secondary">
+                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                    <span>{{ beneficio }}</span>
+                  </li>
+                }
+              </ul>
+              
+              <a href="#registro" class="btn btn-outline-danger w-100 mt-auto">
+                <i class="bi bi-calendar-check me-1"></i>Aprovechar Promoción
+              </a>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Sección 4: Reseñas de Pacientes -->
+<section id="resenas" class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="badge bg-warning text-dark px-3 py-2 rounded-pill text-uppercase">Testimonios Reales</span>
+      <h2 class="fw-bold mt-2">Reseñas de Nuestros Pacientes</h2>
+      <p class="text-muted mx-auto" style="max-width: 650px;">
+        La satisfacción y confianza de nuestros pacientes son el mayor respaldo de nuestra labor diaria.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      @for (resena of resenas; track resena.id) {
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-sm p-3">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex text-warning mb-2 fs-5">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <p class="card-text text-secondary fst-italic flex-grow-1">
+                "{{ resena.comentario }}"
+              </p>
+              <div class="border-top pt-3 d-flex justify-content-between align-items-center">
+                <div>
+                  <h6 class="fw-bold mb-0 text-dark">{{ resena.autor }}</h6>
+                  <small class="text-muted">{{ resena.fecha }}</small>
+                </div>
+                <span class="badge bg-primary-subtle text-primary">{{ resena.servicio }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Sección 5: Formulario de Pacientes y Tabla en Memoria -->
+<section id="registro" class="py-5 bg-white">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="badge bg-primary px-3 py-2 rounded-pill text-uppercase">Módulo de Admisión</span>
+      <h2 class="fw-bold mt-2">Registro de Pacientes en el Sistema</h2>
+      <p class="text-muted mx-auto" style="max-width: 650px;">
+        Formulario reactivo gestionado con <strong>Signals</strong> e inyección de servicios en memoria.
+      </p>
+    </div>
+
+    <!-- Tarjeta del Formulario -->
+    <div class="card shadow-sm border-0 mb-5">
+      <div class="card-header bg-primary text-white py-3">
+        <h5 class="mb-0 fw-bold d-flex align-items-center">
+          <i class="bi bi-person-lines-fill me-2"></i> Formulario de Registro de Paciente
+        </h5>
+      </div>
+      <div class="card-body p-4">
+        <form (submit)="guardar($event)" class="row g-3">
+          <!-- Campo Nombre -->
+          <div class="col-md-5">
+            <label for="nombre" class="form-label fw-semibold">
+              <i class="bi bi-person-fill text-primary me-1"></i>Nombre Completo
+            </label>
+            <input
+              type="text"
+              id="nombre"
+              class="form-control"
+              placeholder="Ej: Juan Pérez Morales"
+              [formField]="pacienteFormulario.nombre"
+            />
+            @if (pacienteFormulario.nombre().touched() && pacienteFormulario.nombre().invalid()) {
+              @for (e of pacienteFormulario.nombre().errors(); track $index) {
+                <div class="text-danger small mt-1">
+                  <i class="bi bi-exclamation-circle-fill me-1"></i>{{ e.message }}
+                </div>
+              }
+            }
+          </div>
+
+          <!-- Campo Edad -->
+          <div class="col-md-3">
+            <label for="edad" class="form-label fw-semibold">
+              <i class="bi bi-123 text-primary me-1"></i>Edad
+            </label>
+            <input
+              type="number"
+              id="edad"
+              class="form-control"
+              placeholder="Ej: 30"
+              [formField]="pacienteFormulario.edad"
+            />
+            @if (pacienteFormulario.edad().touched() && pacienteFormulario.edad().invalid()) {
+              @for (e of pacienteFormulario.edad().errors(); track $index) {
+                <div class="text-danger small mt-1">
+                  <i class="bi bi-exclamation-circle-fill me-1"></i>{{ e.message }}
+                </div>
+              }
+            }
+          </div>
+
+          <!-- Campo Teléfono -->
+          <div class="col-md-4">
+            <label for="telefono" class="form-label fw-semibold">
+              <i class="bi bi-telephone-fill text-primary me-1"></i>Teléfono de Contacto
+            </label>
+            <input
+              type="text"
+              id="telefono"
+              class="form-control"
+              placeholder="Ej: 987654321"
+              [formField]="pacienteFormulario.telefono"
+            />
+            @if (pacienteFormulario.telefono().touched() && pacienteFormulario.telefono().invalid()) {
+              @for (e of pacienteFormulario.telefono().errors(); track $index) {
+                <div class="text-danger small mt-1">
+                  <i class="bi bi-exclamation-circle-fill me-1"></i>{{ e.message }}
+                </div>
+              }
+            }
+          </div>
+
+          <!-- Botones de Acción -->
+          <div class="col-12 mt-4 d-flex gap-2">
+            <button
+              class="btn btn-primary px-4 shadow-sm"
+              type="submit"
+              [disabled]="
+                pacienteFormulario.nombre().invalid() ||
+                pacienteFormulario.edad().invalid() ||
+                pacienteFormulario.telefono().invalid()
+              "
+            >
+              <i class="bi bi-check2-circle me-1"></i> Guardar Paciente
+            </button>
+            <button class="btn btn-outline-secondary px-3" type="button" (click)="limpiar()">
+              <i class="bi bi-eraser-fill me-1"></i> Limpiar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Tarjeta de la Tabla de Pacientes -->
+    <div class="card shadow-sm border-0">
+      <div class="card-header bg-dark text-white py-3 d-flex justify-content-between align-items-center">
+        <h5 class="mb-0 fw-bold d-flex align-items-center">
+          <i class="bi bi-table me-2"></i> Lista de Pacientes Registrados
+        </h5>
+        <span class="badge bg-primary fs-6 px-3 py-2 rounded-pill">
+          Total: {{ listaPacientes.length }}
+        </span>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-striped table-hover align-middle mb-0">
+            <thead class="table-light">
+              <tr>
+                <th scope="col" class="text-center" style="width: 60px;">#</th>
+                <th scope="col">Nombre del Paciente</th>
+                <th scope="col" class="text-center">Edad</th>
+                <th scope="col" class="text-center">Grupo Etario</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col" class="text-center">Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (paciente of listaPacientes; track $index) {
+                <tr>
+                  <td class="text-center fw-bold text-muted">{{ $index + 1 }}</td>
+                  <td class="fw-semibold text-dark">
+                    <i class="bi bi-person-circle text-primary me-2"></i>{{ paciente.nombre }}
+                  </td>
+                  <td class="text-center">{{ paciente.edad }} años</td>
+                  <td class="text-center">
+                    @if (paciente.edad < 18) {
+                      <span class="badge bg-warning text-dark">Pediatría / Menor</span>
+                    } @else if (paciente.edad >= 60) {
+                      <span class="badge bg-secondary">Adulto Mayor</span>
+                    } @else {
+                      <span class="badge bg-info text-dark">Adulto</span>
+                    }
+                  </td>
+                  <td>
+                    <i class="bi bi-telephone text-muted me-1"></i>{{ paciente.telefono }}
+                  </td>
+                  <td class="text-center">
+                    <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1">
+                      <i class="bi bi-check-circle-fill me-1"></i>Activo
+                    </span>
+                  </td>
+                </tr>
+              } @empty {
+                <tr>
+                  <td colspan="6" class="text-center py-4 text-muted">
+                    <i class="bi bi-inbox fs-3 d-block mb-2"></i>
+                    No hay pacientes registrados en este momento.
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer Institucional -->
+<footer class="bg-dark text-white pt-5 pb-4 border-top">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4 col-md-6">
+        <h5 class="fw-bold mb-3 d-flex align-items-center gap-2">
+          <i class="bi bi-hospital text-primary"></i>
+          <span>Hospital <span class="text-warning">Dr. Sano</span></span>
+        </h5>
+        <p class="text-secondary small">
+          Institución comprometida con la vida, la salud y la atención médica integral de calidad para toda la comunidad.
+        </p>
+        <p class="text-secondary small mb-0">
+          <i class="bi bi-geo-alt-fill text-danger me-1"></i> Av. De la Salud 1234, Huancayo - Perú
+        </p>
+      </div>
+
+      <div class="col-lg-2 col-md-6">
+        <h6 class="fw-bold text-uppercase mb-3 text-light">Navegación</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Inicio</a></li>
+          <li class="mb-2"><a href="#servicios" class="text-secondary text-decoration-none">Servicios</a></li>
+          <li class="mb-2"><a href="#medicos" class="text-secondary text-decoration-none">Médicos</a></li>
+          <li class="mb-2"><a href="#promociones" class="text-secondary text-decoration-none">Promociones</a></li>
+          <li class="mb-2"><a href="#resenas" class="text-secondary text-decoration-none">Reseñas</a></li>
+          <li><a href="#registro" class="text-secondary text-decoration-none">Registro</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <h6 class="fw-bold text-uppercase mb-3 text-light">Horarios de Atención</h6>
+        <ul class="list-unstyled small text-secondary">
+          <li class="mb-2"><i class="bi bi-clock-fill text-warning me-2"></i>Emergencias: 24 Horas</li>
+          <li class="mb-2"><i class="bi bi-clock text-warning me-2"></i>Consultas: Lun - Sáb: 7:00am - 8:00pm</li>
+          <li><i class="bi bi-clock text-warning me-2"></i>Laboratorio: Lun - Dom: 6:00am - 7:00pm</li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <h6 class="fw-bold text-uppercase mb-3 text-light">Contacto</h6>
+        <ul class="list-unstyled small text-secondary">
+          <li class="mb-2"><i class="bi bi-telephone-fill text-primary me-2"></i>Central: (064) 489-100</li>
+          <li class="mb-2"><i class="bi bi-envelope-fill text-primary me-2"></i>contacto&#64;drsano.hospital.pe</li>
+          <li><i class="bi bi-shield-check text-success me-2"></i>Convenios con todos los seguros</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="border-secondary my-4" />
+
+    <div class="row align-items-center">
+      <div class="col-md-6 text-center text-md-start">
+        <small class="text-secondary">
+          &copy; 2026 Hospital Dr. Sano. Todos los derechos reservados.
+        </small>
+      </div>
+      <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+        <small class="text-secondary">
+          Desarrollo de Aplicaciones Web - Evaluación Unidad 2
+        </small>
+      </div>
+    </div>
+  </div>
+</footer>
+

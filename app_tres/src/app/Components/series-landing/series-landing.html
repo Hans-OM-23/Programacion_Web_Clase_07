@@ -1,0 +1,50 @@
+<section class="series" [class.tema-oscuro]="oscuro()">
+  <button type="button" class="theme-toggle" (click)="alternarTema()" [attr.aria-pressed]="oscuro()">
+    {{ oscuro() ? 'Modo claro' : 'Modo oscuro' }}
+  </button>
+
+  <h1 class="series__titulo">SERIES</h1>
+  <p class="series__subtitulo">Elige una franquicia y explora su API</p>
+
+  <div class="portadas">
+    <a class="portada portada--rick" routerLink="/rick-and-morty" aria-label="Ir a Rick and Morty">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Rick_and_Morty.svg"
+        alt="Portada de Rick and Morty"
+      />
+      <span>Rick and Morty</span>
+    </a>
+
+    <a class="portada portada--simpsons" routerLink="/simpsons" aria-label="Ir a Los Simpsons">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/en/0/0d/Simpsons_FamilyPicture.png"
+        alt="Portada de Los Simpsons"
+      />
+      <span>Los Simpsons</span>
+    </a>
+
+    <a class="portada portada--got" routerLink="/game-of-thrones" aria-label="Ir a Game of Thrones">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/en/d/d8/Game_of_Thrones_title_card.jpg"
+        alt="Portada de Game of Thrones"
+      />
+      <span>Game of Thrones</span>
+    </a>
+
+    <a class="portada portada--starwars" routerLink="/star-wars" aria-label="Ir a Star Wars">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg"
+        alt="Portada de Star Wars"
+      />
+      <span>Star Wars</span>
+    </a>
+
+    <a class="portada portada--pokemon" routerLink="/pokemons" aria-label="Ir a Pokemon">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg"
+        alt="Portada de Pokemon"
+      />
+      <span>Pokemon</span>
+    </a>
+  </div>
+</section>

@@ -1,0 +1,94 @@
+<section class="pokedex">
+  <a class="back-link" routerLink="/">
+    <svg class="back-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    <span>Volver al inicio</span>
+  </a>
+  <button type="button" class="theme-toggle" (click)="alternarTema()">Modo {{ oscuro() ? 'claro' : 'oscuro' }}</button>
+  <header class="pokedex__header">
+    <h1>Pokedex</h1>
+    <p>Repertorio de Pokemon consumido desde PokeAPI.</p>
+  </header>
+
+  <div class="controles">
+    <input
+      type="search"
+      placeholder="Buscar por nombre o numero"
+      [value]="busqueda()"
+      (input)="onBusqueda($any($event.target).value)"
+    />
+
+    <select [value]="tipoSeleccionado()" (change)="onTipoChange($any($event.target).value)">
+      <option value="all">Todos los tipos</option>
+      @for (tipo of tipos(); track tipo.name) {
+        <option [value]="tipo.name">{{ tipo.name }}</option>
+      }
+    </select>
+
+    <span class="contador">{{ pokemonesFiltrados().length }} resultados</span>
+  </div>
+
+  @if (cargando()) {
+    <p class="estado">Cargando repertorio...</p>
+  }
+
+  @if (error()) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  <ul class="grid">
+    @for (pokemon of pokemonesFiltrados(); track pokemon.id) {
+      <li class="card" tabindex="0" (click)="verDetalle(pokemon)" (keydown.enter)="verDetalle(pokemon)">
+        <img
+          [src]="pokemon.image"
+          [alt]="pokemon.name"
+          (error)="$event.target.src = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + pokemon.id + '.png'"
+        />
+        <span class="card__id">#{{ pokemon.id }}</span>
+        <h2 class="card__nombre">{{ pokemon.name }}</h2>
+      </li>
+    } @empty {
+      <li class="vacio">No hay Pokemon que coincidan con la busqueda.</li>
+    }
+  </ul>
+
+  @if (cargandoDetalle()) {
+    <div class="modal" role="dialog" aria-modal="true">
+      <article class="modal__contenido">
+        <p>Cargando detalle...</p>
+      </article>
+    </div>
+  }
+
+  @if (detalle(); as pokemon) {
+    <div class="modal" role="dialog" aria-modal="true" (click)="cerrarDetalle()">
+      <article class="modal__contenido" (click)="$event.stopPropagation()">
+        <button type="button" class="modal__cerrar" (click)="cerrarDetalle()">Cerrar</button>
+        <img [src]="imagenDetalle(pokemon)" [alt]="pokemon.name" />
+        <h2>{{ pokemon.name }} #{{ pokemon.id }}</h2>
+        <p><strong>Tipos:</strong> {{ tiposDetalle(pokemon) }}</p>
+        <p><strong>Peso:</strong> {{ pokemon.weight }}</p>
+        <p><strong>Altura:</strong> {{ pokemon.height }}</p>
+        <p><strong>Experiencia base:</strong> {{ pokemon.base_experience }}</p>
+
+        <h3>Habilidades</h3>
+        <ul>
+          @for (habilidad of pokemon.abilities; track habilidad.ability.name) {
+            <li>{{ habilidad.ability.name }}{{ habilidad.is_hidden ? ' (oculta)' : '' }}</li>
+          }
+        </ul>
+
+        <h3>Estadisticas</h3>
+        <ul class="stats">
+          @for (stat of pokemon.stats; track stat.stat.name) {
+            <li>
+              <span>{{ stat.stat.name }}</span>
+              <strong>{{ stat.base_stat }}</strong>
+            </li>
+          }
+        </ul>
+      </article>
+    </div>
+  }
+</section>

@@ -1,0 +1,99 @@
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.back-icon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.2s ease;
+}
+
+.back-link:hover .back-icon {
+  transform: translateX(-4px);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  color: #0f172a;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+}
+
+:host.tema-oscuro {
+  background:
+    radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.18), transparent 35%),
+    radial-gradient(circle at 85% 25%, rgba(34, 211, 238, 0.12), transparent 35%),
+    linear-gradient(180deg, #020617 0%, #0f172a 100%);
+}
+
+:host.tema-oscuro .back-link,
+:host.tema-oscuro .theme-toggle {
+  background: rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+:host.tema-oscuro h1,
+:host.tema-oscuro h2,
+:host.tema-oscuro h3 {
+  color: #f8fafc;
+}
+
+:host.tema-oscuro p {
+  color: #cbd5e1;
+}
+
+:host.tema-oscuro .controles {
+  background: rgba(15, 23, 42, 0.62);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+:host.tema-oscuro .controles input,
+:host.tema-oscuro .controles select {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f8fafc;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+:host.tema-oscuro .card {
+  background: rgba(15, 23, 42, 0.72);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #e2e8f0;
+}
+
+:host.tema-oscuro .card p,
+:host.tema-oscuro .card .detalle,
+:host.tema-oscuro .count {
+  color: #94a3b8;
+}
+
+:host.tema-oscuro .modal__contenido {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+:host.tema-oscuro .modal__cerrar {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+:host.tema-oscuro .error {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fecaca;
+}

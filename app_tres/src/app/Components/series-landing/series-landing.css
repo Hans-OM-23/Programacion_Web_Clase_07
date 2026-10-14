@@ -1,0 +1,186 @@
+:host {
+  display: block;
+}
+
+.series {
+  --bg: #ffffff;
+  --surface: rgba(255, 255, 255, 0.72);
+  --text: #101828;
+  --muted: #475467;
+  --accent: #7c3aed;
+  --accent-2: #06b6d4;
+  --accent-3: #f97316;
+  --border: rgba(16, 24, 40, 0.12);
+
+  min-height: 100dvh;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 1rem 4rem;
+  display: grid;
+  align-content: center;
+  gap: 2.5rem;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.18), transparent 35%),
+    radial-gradient(circle at 80% 30%, rgba(6, 182, 212, 0.18), transparent 35%),
+    radial-gradient(circle at 50% 80%, rgba(249, 115, 22, 0.16), transparent 40%),
+    var(--bg);
+  color: var(--text);
+  text-align: center;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+
+.series.tema-oscuro {
+  --bg: #050816;
+  --surface: rgba(255, 255, 255, 0.07);
+  --text: #f8fafc;
+  --muted: #cbd5e1;
+  --accent: #a78bfa;
+  --accent-2: #22d3ee;
+  --accent-3: #fb923c;
+  --border: rgba(255, 255, 255, 0.14);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(167, 139, 250, 0.22), transparent 35%),
+    radial-gradient(circle at 80% 30%, rgba(34, 211, 238, 0.16), transparent 35%),
+    radial-gradient(circle at 50% 80%, rgba(251, 146, 60, 0.16), transparent 40%),
+    #050816;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+}
+
+.series__titulo {
+  margin: 0;
+  font-size: clamp(5rem, 18vw, 13rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+  background: linear-gradient(100deg, var(--accent), var(--accent-2), var(--accent-3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 28px rgba(124, 58, 237, 0.35));
+  animation: glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 0 18px rgba(124, 58, 237, 0.25));
+  }
+  to {
+    filter: drop-shadow(0 0 36px rgba(34, 211, 238, 0.45));
+  }
+}
+
+.series__subtitulo {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.15rem;
+}
+
+.portadas {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.portada {
+  position: relative;
+  min-height: 220px;
+  display: grid;
+  align-content: end;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: var(--text);
+  border-radius: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+.portada::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.22;
+  background: linear-gradient(135deg, var(--accent), transparent 60%);
+  transition: opacity 0.25s ease;
+}
+
+.portada:hover {
+  transform: translateY(-10px) scale(1.015) rotateX(1deg);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.3);
+  border-color: var(--accent);
+}
+
+.portada:hover::before {
+  opacity: 0.38;
+}
+
+.portada img {
+  width: 100%;
+  height: 130px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.2));
+}
+
+.portada span {
+  position: relative;
+  z-index: 1;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.portada--rick {
+  --accent: #94fd30;
+}
+
+.portada--simpsons {
+  --accent: #facc15;
+}
+
+.portada--got {
+  --accent: #c084fc;
+}
+
+.portada--pokemon {
+  --accent: #ef4444;
+}
+
+.portada--starwars {
+  --accent: #facc15;
+}
+
+@media (max-width: 720px) {
+  .theme-toggle {
+    position: static;
+    justify-self: center;
+  }
+}
